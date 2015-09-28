@@ -3,10 +3,14 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="#">VAGABOND</a>
+      <a class="navbar-brand" href="/">VAGABOND</a>
 
     </div>
-    <button type="button" class="btn btn-default navbar-right navbar-btn">Sign in</button>
-    <button type="button" class="btn btn-default navbar-right navbar-btn">Sign up</button>
+    <% if @user %>
+    	<button type="button" class="btn btn-default navbar-right navbar-btn">Logout</button>
+    <% else %>
+	    <button type="button" class="btn btn-default navbar-right navbar-btn">Sign in</button>
+	    <button type="button" class="btn btn-default navbar-right navbar-btn">Sign up</button>
+	  <% end %>
   </div><!-- /.container-fluid -->
 </nav>
