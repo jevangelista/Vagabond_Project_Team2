@@ -10,5 +10,13 @@ Rails.application.routes.draw do
 
   get "/users/:id", to: "users#show", as: "user"
 
+  #sessions routes
+
+  get "/sign_in", to: "sessions#new"  
+
+  post "/sessions", to: "sessions#create"
+
+  delete "/sessions", to: "sessions#destroy"
+
  
 end
