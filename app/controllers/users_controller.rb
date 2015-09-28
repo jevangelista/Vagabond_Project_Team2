@@ -1,26 +1,28 @@
 class UsersController < ApplicationController
 
 
-  def index
+   def index
     @users = User.all
     render :index
   end
 
-  def new 
-    @user = User.new #creates article instance for form
-    render :new #renders form
+  def new
+    @user = User.new
+    render :new
   end
 
   def create
-    new_user = params.require(:user).permit(:email, :password_digest, :first_name, :last_name, :current_city)
-    @user = User.create(new_user) #magically being inserted in database
-    redirect_to "/users/#{@user.id}"
+    user_params = params.require(:user).permit(:first_name, :last_name, :email, :password)
+    @user = User.create(user_params)
+
+    login(@user) # <-- login the user
+    redirect_to "/users/#{@user.id}" 
   end
 
-  def show 
-    id= params[:id]
-    @user = User.find(id)
-    render :show
-  end
+   def show
+      id = params[:id]
+      @user = User.find(id)
+      render :show
+    end
 
 end
