@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'users#index' #same as get "/" => "articles#index"
+  root to: 'welcome#index' #same as get "/" => "articles#index"
   
   get "/users", to: "users#index", as: "users"
 

@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+email = FFaker::Internet.email
+first_name = FFaker::Name.first_name
+last_name = FFaker::Name.last_name
+current_city = FFaker::AddressUS.city
+user_data = {email: email, password_digest: "qwe", first_name: first_name, last_name: last_name, current_city: current_city}
+user = User.create(user_data)
+
+title = FFaker::Movie.title
+content = FFaker::BaconIpsum.paragraph
+city = current_city
+user_id = user.id 
+post_data = {title: title, content: content, city: city, user_id: user_id}
+Post.create(post_data)
