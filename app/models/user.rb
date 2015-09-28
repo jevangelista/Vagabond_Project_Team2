@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+	has_many :posts
 	has_secure_password
 
 	def self.confirm(params)
@@ -6,5 +8,8 @@ class User < ActiveRecord::Base
 		@user.try(:authenticate, params[:password])
 
 	end
+
+
+	
 
 end
