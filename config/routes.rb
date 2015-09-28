@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  # get 'welcome/index'
+
+  root to: 'users#index' #same as get "/" => "articles#index"
+  
+  get "/users", to: "users#index", as: "users"
+
+  get "/users/new", to: "users#new", as: "new_user"
+
+  post "/users", to: "users#create"
+
+  get "/users/:id", to: "users#show", as: "user"
+
+ 
 end
