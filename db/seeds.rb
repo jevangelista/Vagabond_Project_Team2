@@ -11,7 +11,7 @@
 	first_name = FFaker::Name.first_name
 	last_name = FFaker::Name.last_name
 	current_city = FFaker::AddressUS.city
-	user_data = {email: email, password_digest: "qwe", first_name: first_name, last_name: last_name, current_city: current_city}
+	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, current_city: current_city}
 	user = User.create(user_data)
 	5.times do
 		title = FFaker::Movie.title
