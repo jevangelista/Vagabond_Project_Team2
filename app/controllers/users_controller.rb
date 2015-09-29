@@ -7,12 +7,16 @@ class UsersController < ApplicationController
    end
 
    def new
+    @cities = City.all
     @user = User.new
+
+    # @user.current_city = City.find_by id: 
     render :new
    end
 
    def create
-    user_params = params.require(:user).permit(:first_name, :last_name, :email, :current_city, :password, :created_at)
+    user_params = params.require(:user).permit(:first_name, :last_name, :email, :city_id, :password, :created_at)
+    p "CREATING A USER #{user_params}"
     @user = User.create(user_params)
 
     login(@user) # <-- login the user

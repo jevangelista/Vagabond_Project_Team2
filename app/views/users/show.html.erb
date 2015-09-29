@@ -1,5 +1,6 @@
 <h1>Welcome, <%= @user.first_name %></h1>
-<p>Your current city is: <%= @user.current_city %></p>
+<% cityObj = City.find_by id: @user.city_id %>
+<p>Your current city is: <%= cityObj.name %></p>
 <p>Member since: <%= @user.created_at %></p>
 
 
