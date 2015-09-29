@@ -5,3 +5,9 @@
 
 
 <%= link_to "Edit", edit_user_path %>
+
+<% @user.posts.each do |post| %>
+	<div class='list-group'>
+		<%= link_to post.title, user_posts_path(post.title) %>
+	</div>
+<% end %>

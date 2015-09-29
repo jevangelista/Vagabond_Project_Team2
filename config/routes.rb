@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   # The update route
   patch "/users/:id", to: "users#update" 
 
-  
+
+  get 'users/:id/posts' => 'users#posts', :as => :user_posts
+
 
  
 end
