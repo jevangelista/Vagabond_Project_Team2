@@ -15,6 +15,9 @@
  *= require bootstrap
  */
 html {
-	background-image: url("https://images.unsplash.com/photo-1422504246780-c4a4de5b2641?q=80&fm=jpg&s=d92b9aee41b03ae85adef8ae280f72ea");
+	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c")no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-
