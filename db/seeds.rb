@@ -11,7 +11,12 @@ User.destroy_all
 Post.destroy_all
 
 # San Francisco twice to increase chanses of it being picked
-cities = ["San Francisco", "San Francisco", "New York", "Los Angeles", "Boulder", "Chicago", "Las Vegas"]
+cities = ["San Francisco", "New York", "Los Angeles", "London", "Gibraltar", "Las Vegas"]
+
+# Populates the cities table
+cities.each do |city|
+	City.create({name: city})
+end
 
 # Creates 20 users
 20.times do 
