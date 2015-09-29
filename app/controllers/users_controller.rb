@@ -4,20 +4,20 @@ class UsersController < ApplicationController
    def index
     @users = User.all
     render :index
-  end
+   end
 
-  def new
+   def new
     @user = User.new
     render :new
-  end
+   end
 
-  def create
+   def create
     user_params = params.require(:user).permit(:first_name, :last_name, :email, :current_city, :password, :created_at)
     @user = User.create(user_params)
 
     login(@user) # <-- login the user
     redirect_to "/users/#{@user.id}" 
-  end
+   end
 
    def show
       id = params[:id]
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
       render :edit
     end
 
-
     def update
       user_id = params[:id]
       user = User.find(user_id)
@@ -44,6 +43,12 @@ class UsersController < ApplicationController
 
       #redirect to show
       redirect_to "/users/#{user.id}"  # <-- go to show
+     end
+
+     def posts
+        p params
+        @post = Post.find_by title: params[:id]
+        @user = User.find_by_id(@post.user_id)
      end
 
 end
