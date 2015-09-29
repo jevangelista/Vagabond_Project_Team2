@@ -44,11 +44,13 @@ class UsersController < ApplicationController
       #redirect to show
       redirect_to "/users/#{user.id}"  # <-- go to show
      end
+ 
 
      def posts
         p params
         @post = Post.find_by title: params[:id]
         @user = User.find_by_id(@post.user_id)
      end
+
 
 end
