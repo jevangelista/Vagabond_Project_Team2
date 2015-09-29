@@ -18,5 +18,12 @@ Rails.application.routes.draw do
 
   delete "/sessions", to: "sessions#destroy"
 
+  #update routes
+
+  get "/users/:id/edit", to: "users#edit", as: "edit_user"
+
+  # The update route
+  patch "/users/:id", to: "users#update" 
+
  
 end
