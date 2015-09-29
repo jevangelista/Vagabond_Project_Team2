@@ -18,18 +18,18 @@ cities = ["San Francisco", "San Francisco", "New York", "Los Angeles", "Boulder"
 	email = FFaker::Internet.email
 	first_name = FFaker::Name.first_name
 	last_name = FFaker::Name.last_name
-	current_city = cities[rand(cities.length)] #FFaker::AddressUS.city
+	city_name = cities[rand(cities.length)] #FFaker::AddressUS.city
 	# Each seeded user has password "qwe"
-	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, current_city: current_city}
+	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, city_name: city_name}
 	user = User.create(user_data)
 # Creates 5 - 15 posts for each user
 	(rand(11) + 5).times do
 		title = FFaker::Movie.title
 		content = FFaker::BaconIpsum.paragraph
-		# 20% chance post is the same as their current_city
-		city = rand(10) < 8 ? current_city : "San Francisco" 
+		# 20% chance post is the same as their city
+		city = rand(10) < 8 ? city_name : "San Francisco" 
 		user_id = user.id 
-		post_data = {title: title, content: content, city: city, user_id: user_id}
+		post_data = {title: title, content: content, city_name: city, user_id: user_id}
 		Post.create(post_data)
 	end
 end
