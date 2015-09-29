@@ -14,8 +14,8 @@ City.destroy_all
 cities = ["San Francisco", "New York", "Los Angeles", "London", "Gibraltar", "Las Vegas"]
 
 # Populates the cities table
-cities.each do |city|
-	City.create({name: city})
+cities.each do |c|
+	City.create({name: c})
 end
 
 def getCityId(city)
@@ -31,7 +31,7 @@ end
 	city_name = cities[rand(cities.length)]
 	city_id = 1
 	# Each seeded user has password "qwe"
-	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, city: city_name, city_id: getCityId(city_name)}
+	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, city_id: getCityId(city_name)}
 # p "before creating user #{user_data}"
 	user = User.create(user_data)
 # p "after creating user #{user}"
@@ -42,7 +42,7 @@ end
 		# 20% chance post is the same as their city
 		city = rand(10) < 8 ? city_name : "San Francisco" 
 		user_id = user.id 	
-		post_data = {title: title, content: content, city: city, user_id: user_id, city_id: getCityId(city)}
+		post_data = {title: title, content: content, user_id: user_id, city_id: getCityId(city)}
 		Post.create(post_data)
 	end
 end
