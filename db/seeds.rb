@@ -11,11 +11,12 @@ User.destroy_all
 Post.destroy_all
 City.destroy_all
 
-cities = ["San Francisco", "New York", "Los Angeles", "London", "Gibraltar", "Las Vegas"]
+cities = [["San Francisco", "https://images.unsplash.com/photo-1439396087961-98bc12c21176?q=80&fm=jpg&s=bce7579fe32b464cc2d53c5c144a2de4" ], 
+["New York", "#"], ["Los Angeles", "#"], ["London", "#"], ["Gibraltar", "#"],["Las Vegas", "#"]]
 
 # Populates the cities table
 cities.each do |c|
-	City.create({name: c})
+	City.create({name: c[0], imgurl: c[1]})
 end
 
 def getCityId(city)
