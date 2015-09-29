@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 
 	has_many :posts
-	belongs_to :city, :foreign_key => :city_name
+	# belongs_to :city
+	
 	has_secure_password
 
 	def self.confirm(params)
