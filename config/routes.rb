@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get '/cities', to: "cities#index"
 
-  get '/cities/:id', to: "cities#show", :as => :city_name
+  get '/cities/:id', to: "cities#show", as: "city_name"
 
   root to: 'welcome#index' #same as get "/" => "articles#index"
   
