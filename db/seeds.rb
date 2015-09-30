@@ -32,7 +32,6 @@ end
 	first_name = FFaker::Name.first_name
 	last_name = FFaker::Name.last_name
 	city_name = cities[rand(cities.length)]
-	city_id = 1
 	# Each seeded user has password "qwe"
 	user_data = {email: email, password: "qwe", first_name: first_name, last_name: last_name, city_id: getCityId(city_name)}
 # p "before creating user #{user_data}"
@@ -42,7 +41,7 @@ end
 	(rand(11) + 5).times do
 		title = FFaker::Movie.title
 		content = FFaker::BaconIpsum.paragraph
-		# 20% chance post is the same as their city
+		# 80% chance post is the same as their city
 		city = rand(10) < 8 ? city_name : "San Francisco" 
 		user_id = user.id 	
 		post_data = {title: title, content: content, user_id: user_id, city_id: getCityId(city)}
