@@ -15,9 +15,38 @@
  *= require bootstrap
  */
 body {
-	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c")no-repeat center center fixed; 
+
+	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c"); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-align: center;
 }
+
+h1 {
+  font-family:'Lobster', cursive;
+}
+
+
+form.button_to input {
+  -webkit-border-radius: 36px 12px;
+  background-color: #99FF33;
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.red.btn.btn-default.navbar-right.navbar-btn:hover {
+  background-color: red;
+}
+
+div.list-group {
+  width: 45%;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+
+
+
