@@ -1,20 +1,21 @@
 Rails.application.routes.draw do
 
-  get '/posts/index', to: "posts#index", as: "posts"
+  get '/posts', to: "posts#index", as: "posts"
 
   get '/posts/new', to: "posts#new", as: "new_post"
 
-  get 'posts/show'
+  get '/posts/:id', to: 'posts#show', as: "post"
 
-  get 'posts/edit'
+  get '/posts/:id/edit', to: 'posts#edit', as: "edit_post"
 
-  get 'posts/create'
+  post "/posts", to: "posts#create"
+  #the update route 
+  patch "/posts/:id", to: "posts#update"
 
-  get 'posts/update'
+  #the destroy route 
+  delete "/posts/:id", to: "posts#destroy"
 
-  get 'posts/destroy'
-
-  get 'cities', to: "cities#index"
+  get '/cities', to: "cities#index"
 
   get '/cities/:id', to: "cities#show", :as => :city_name
 
