@@ -51,8 +51,8 @@ class UsersController < ApplicationController
 
 
   def posts
-    p params
-    @post = Post.find_by title: params[:id]
+    p "IN USERS POSTS #{params}"
+    @post = Post.find_by id: params[:id]
     @user = User.find_by_id(@post.user_id)
   end
 
