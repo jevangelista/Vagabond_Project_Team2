@@ -27,6 +27,7 @@ end
 # Creates 20 users
 20.times do 
 	email = FFaker::Internet.email
+	p "email: #{email} | password: qwe"
 	first_name = FFaker::Name.first_name
 	last_name = FFaker::Name.last_name
 	city_name = cities[rand(cities.length)]
