@@ -37,11 +37,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    p "USERS UPDATE CONTROLLER"
+    p "#{params}"
     user_id = params[:id]
     user = User.find(user_id)
+    p "found user #{user}"
 
     # get updated data
-    updated_attributes = params.require(:user).permit(:first_name, :current_city)
+    updated_attributes = params.require(:user).permit(:first_name, :city_id)
     # update the user
     user.update_attributes(updated_attributes)
 

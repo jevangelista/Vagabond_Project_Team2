@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = params.require(:post).permit(:id, :content, :city_id)
+    new_post = params.require(:post).permit(:title, :content, :city_id)
     post = Post.create(new_post) #magically being inserted in database
     redirect_to "/posts/#{post.id}"
   end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     post = Post.find(post_id)
 
     #get updated data
-    updated_attributes = params.require(:post).permit(:id, :content)
+    updated_attributes = params.require(:post).permit(:title, :content)
     #update the article 
     post.update_attributes(updated_attributes)
     #redirect to show
