@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = params.require(:post).permit(:title, :content)
+    new_post = params.require(:post).permit(:title, :content, :city_id)
     post = Post.create(new_post) #magically being inserted in database
     redirect_to "/posts/#{post.id}"
   end
