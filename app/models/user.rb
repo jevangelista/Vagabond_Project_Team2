@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
 		@user.try(:authenticate, params[:password])
 	end
 
-	#TODO: remove `city` attribute
 
+end

@@ -9,14 +9,21 @@ class PostsController < ApplicationController
     render :new #renders form
   end
 
+  def create
+    post_params = params.require(:post).permit(:title, :content, :city_id)
+    p "Create a Post!"
+    @post = Post.create(post_params)
+
+    redirect_to "/posts"
+  end
+
   def show
   end
 
   def edit
   end
 
-  def create
-  end
+
 
   def update
   end

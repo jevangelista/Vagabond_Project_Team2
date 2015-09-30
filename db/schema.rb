@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150929205510) do
-=======
 ActiveRecord::Schema.define(version: 20150929213358) do
->>>>>>> c08b11ab749aca5034e7426942ef40964fcc320e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,10 +38,6 @@ ActiveRecord::Schema.define(version: 20150929213358) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string   "city_id"
-=======
->>>>>>> c08b11ab749aca5034e7426942ef40964fcc320e
   end
 
   create_table "users", force: :cascade do |t|
