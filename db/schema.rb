@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 20150929213358) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cities_posts", id: false, force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "city_id", null: false
-  end
-
-  add_index "cities_posts", ["city_id"], name: "index_cities_posts_on_city_id", using: :btree
-  add_index "cities_posts", ["post_id"], name: "index_cities_posts_on_post_id", using: :btree
-
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
