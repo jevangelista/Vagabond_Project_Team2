@@ -10,13 +10,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @post = Post.find(params[:id])
+    title = params[:title]
+    @post = Post.find(params[:title])
     render :show
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:title])
   end
 
   def create
@@ -26,20 +26,20 @@ class PostsController < ApplicationController
   end
 
   def update
-    post_id = params[:id]
-    post = Post.find(post_id)
+    post_title = params[:title]
+    post = Post.find(post_title)
 
     #get updated data
     updated_attributes = params.require(:post).permit(:title, :content)
     #update the article 
     post.update_attributes(updated_attributes)
     #redirect to show
-    redirect_to "/posts/#{post_id}"
+    redirect_to "/posts/#{post_title}"
   end
 
   def destroy
-    id = params[:id]
-    post = Post.find(id)
+    title = params[:title]
+    post = Post.find(title)
     post.delete
     redirect_to "/posts"
   end

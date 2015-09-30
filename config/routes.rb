@@ -4,16 +4,16 @@ Rails.application.routes.draw do
 
   get '/posts/new', to: "posts#new", as: "new_post"
 
-  get '/posts/:id', to: 'posts#show', as: "post"
+  get '/posts/:title', to: 'posts#show', as: "post"
 
-  get '/posts/:id/edit', to: 'posts#edit', as: "edit_post"
+  get '/posts/:title/edit', to: 'posts#edit', as: "edit_post"
 
   post "/posts", to: "posts#create"
   #the update route 
-  patch "/posts/:id", to: "posts#update"
+  patch "/posts/:title", to: "posts#update"
 
   #the destroy route 
-  delete "/posts/:id", to: "posts#destroy"
+  delete "/posts/:title", to: "posts#destroy"
 
   get '/cities', to: "cities#index"
 
