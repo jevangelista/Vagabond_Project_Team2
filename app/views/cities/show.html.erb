@@ -1,8 +1,15 @@
-<h1>CITY ID PAGE</h1>
-<%= @city.name %>
+<h1><%= @city.name %></h1>
 
+<%= image_tag(@city.imgurl, width:'100%', height:'30%') %>
 <div>
-  
-  <%= image_tag(@city.imgurl, width:'100%', height:'30%') %>
- 
-</div>
+
+  <% @city.posts.reverse.each do |post| %>
+  	<div class='list-group'>
+  		<%= link_to post.title, user_posts_path(post.title) %>
+  	</div>
+
+</div>  
+<% end %>
+<p>
+
+<%= link_to "Post", new_post_path %></p>

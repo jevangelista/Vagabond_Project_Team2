@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get '/posts/index', to: "posts#index", as: "posts"
+
+  get '/posts/new', to: "posts#new", as: "new_post"
+
+  get 'posts/show'
+
+  get 'posts/edit'
+
+  get 'posts/create'
+
+  get 'posts/update'
+
+  get 'posts/destroy'
+
   get 'cities', to: "cities#index"
 
   get '/cities/:id', to: "cities#show", :as => :city_name
