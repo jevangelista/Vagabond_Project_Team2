@@ -5,7 +5,7 @@
 
   <% @city.posts.reverse.each do |post| %>
   	<div class='list-group'>
-  		<%= link_to post.title, user_posts_path(post.title) %>
+  		<%= link_to post.title, user_posts_path(post) %>
   	</div>
 
 </div>  

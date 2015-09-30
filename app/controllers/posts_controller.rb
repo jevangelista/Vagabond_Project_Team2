@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :update, :destroy]
+
   def index
     @posts = Post.all # a list of all items in post table
     render :index
@@ -45,5 +47,13 @@ class PostsController < ApplicationController
     post = Post.find(id)
     post.delete
     redirect_to "/posts"
+  end
+
+  private
+
+    def require_login
+      unless current_user
+        redirect_to "/sign_in"
+      end
   end
 end
