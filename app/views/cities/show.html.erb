@@ -1,6 +1,7 @@
 <h1><%= @city.name %></h1>
 
 <%= image_tag(@city.imgurl, width:'100%', height:'30%') %>
+<%= button_to "Add a post to this city", new_post_path, method: "get" %>
 <div>
 
   <% @city.posts.reverse.each do |post| %>
@@ -10,7 +11,3 @@
 
 </div>  
 <% end %>
-
-<p>
-
-<%= link_to "Post", new_post_path %></p>
