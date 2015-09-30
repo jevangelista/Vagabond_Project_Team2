@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   patch "/users/:id", to: "users#update" 
 
 
-  get 'users/:id/posts' => 'users#posts', :as => :user_posts
+  get 'users/posts/:id' => 'users#posts', as: "user_posts"
 
 
  
