@@ -16,7 +16,8 @@ cities = [["San Francisco", "https://images.unsplash.com/photo-1439396087961-98b
 
 # Populates the cities table
 cities.each do |c|
-	City.create({name: c[0], imgurl: c[1]})
+	city = City.create({name: c[0], imgurl: c[1]})
+	p " ID: #{city.id} | #{city.name}"
 end
 
 def getCityId(city)
@@ -27,7 +28,7 @@ end
 # Creates 20 users
 20.times do 
 	email = FFaker::Internet.email
-	p "email: #{email} | password: qwe"
+	p "#{email} | password: qwe"
 	first_name = FFaker::Name.first_name
 	last_name = FFaker::Name.last_name
 	city_name = cities[rand(cities.length)]
