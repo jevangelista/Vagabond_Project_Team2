@@ -7,11 +7,11 @@
 	<%= form_for @user do |f| %>
 
 	<div>
-		<%= f.text_field :first_name, placeholder: "First Name" %>
+		<%= f.text_field :first_name %>
 	</div>
 
 	<div>
-		<%= f.text_field :current_city, placeholder: "Current City" %>
+		<%= f.collection_select(:city_id, City.all, :id, :name) %>
 	</div>
 
 
