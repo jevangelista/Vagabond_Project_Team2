@@ -10,36 +10,39 @@ class PostsController < ApplicationController
   end
 
   def show
-    title = params[:title]
-    @post = Post.find(params[:title])
+    id = params[:id]
+    @post = Post.find(params[:id])
     render :show
   end
 
   def edit
-    @post = Post.find(params[:title])
+
+    id = params[:id]
+    @post = Post.find(params[:id])
+
   end
 
   def create
-    new_post = params.require(:post).permit(:title, :content, :city_id)
+    new_post = params.require(:post).permit(:id, :content, :city_id)
     post = Post.create(new_post) #magically being inserted in database
     redirect_to "/posts/#{post.id}"
   end
 
   def update
-    post_title = params[:title]
-    post = Post.find(post_title)
+    post_id = params[:id]
+    post = Post.find(post_id)
 
     #get updated data
-    updated_attributes = params.require(:post).permit(:title, :content)
+    updated_attributes = params.require(:post).permit(:id, :content)
     #update the article 
     post.update_attributes(updated_attributes)
     #redirect to show
-    redirect_to "/posts/#{post_title}"
+    redirect_to "/posts/#{post_id}"
   end
 
   def destroy
-    title = params[:title]
-    post = Post.find(title)
+    id = params[:id]
+    post = Post.find(id)
     post.delete
     redirect_to "/posts"
   end

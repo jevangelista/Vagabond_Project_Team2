@@ -1,24 +1,16 @@
-
 <h1>Here are the posts!</h1>
-
-
- <% @posts.each do |post| %>
+<% @posts.each do |post| %>
   <div>
-              Title: <%= link_to post.title, post %> <br>
-              Content: <%=  post.content %>
-              <p>
-                <%= link_to "Edit", edit_post_path(post) %> | 
-                <%= link_to "Delete", post_path(post),
-                 method: :delete,
-                 data: { confirm: 'do you really want to delete?'} %>
-                
-              </p>
-              <hr />
-              
+    Title: <%= link_to post.title, post_path(post) %> <br>
+    Content: <%=  post.content %>
+    <p>
+      <%= link_to "Edit", edit_post_path(post) %> | 
+      <%= link_to "Delete", post_path(post),
+      method: :delete,
+      data: { confirm: 'do you really want to delete?'} %>
+    </p>
+    <hr>
   </div>
-
-
-
 <% end %>
 
 
