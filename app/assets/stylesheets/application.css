@@ -16,7 +16,8 @@
  */
 body {
 
-	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c"); 
+	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c")no-repeat center center fixed; 
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
