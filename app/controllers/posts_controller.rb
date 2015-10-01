@@ -7,7 +7,14 @@ class PostsController < ApplicationController
   end
 
   def new
+    p "POSTS.NEW PARAMS: #{params}"
     @post = Post.new #creates post instance for form
+    @post.city_id = params[:format]
+    p "@post.city_id = #{@post.city_id}"
+    @user = current_user
+    p "POSTS.NEW @user: #{@user.email}"
+    @post.user_id = @user.id
+    p "@post.user_id = #{@post.user_id}"
     render :new #renders form
   end
 
@@ -25,7 +32,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    p "POSTS.CREATE: #{params}"
+    p "params[:post]: #{params[:post]}"
+    p "params[:user_id]: #{params[:user_id]}"
+# byebug
     new_post = params.require(:post).permit(:title, :content, :city_id)
+    new_post[:user_id] = params[:user_id]
+    p "** new_post #{new_post}"
     post = Post.create(new_post) #magically being inserted in database
     redirect_to "/posts/#{post.id}"
   end
