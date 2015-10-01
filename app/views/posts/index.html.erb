@@ -1,6 +1,6 @@
 <h1>Here are the posts!</h1>
 <% @posts.each do |post| %>
-  <div>
+  <div class="blurry">
     Title: <%= link_to post.title, post_path(post) %> <br>
     Content: <%=  post.content %>
     <p>
