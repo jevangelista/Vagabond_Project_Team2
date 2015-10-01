@@ -15,27 +15,44 @@
  *= require bootstrap
  */
 body {
-
-	background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c")no-repeat center center fixed; 
-
+  background: url("https://images.unsplash.com/photo-1414500923875-1704944d8df7?q=80&fm=jpg&s=12210a3615dc22ff75474859be4e689c")no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.city_title {
+  font-size: 50px;
+  font-family: 'Rubik One', sans-serif;
+  color: white;
+  position: absolute; 
+   top: 90px; 
+   left: 0; 
+   width: 100%; 
 }
 img {
-  width: 100%; 
-  height: 30%;
-  border-radius: 30px;
+  width: 700px;
+  height: 350px;
+  position: relative; 
+  border-radius: 50%;
+  
+}
+.image {
+
 }
 
 
 form.button_to input {
-  -webkit-border-radius: 36px 12px;
-  background-color: #99FF33;
+  -webkit-border-radius: 50px 50px;
+  border: 0px;
+  background-color: #207CCA;
   font-weight: bolder;
-  margin: 10px;
+  padding: 10px;
+  margin: 15px;
 }
 
 .red.btn.btn-default.navbar-right.navbar-btn:hover {

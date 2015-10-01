@@ -12,7 +12,7 @@ Post.destroy_all
 City.destroy_all
 
 cities = [
-	["San Francisco", "https://images.unsplash.com/photo-1439396087961-98bc12c21176?q=80&fm=jpg&s=bce7579fe32b464cc2d53c5c144a2de4"],
+	["San Francisco", "https://images.unsplash.com/photo-1422405061047-61f0cf84c1dc?q=80&fm=jpg&s=8662502e6bc5e8f1e694c890ac7192e1"],
 	["New York", "http://i.huffpost.com/gen/1378052/images/o-NEW-YORK-facebook.jpg"],
 	["Los Angeles", "http://www.udr.com/uploadedImages/UDR3/Market_Areas/Common/UDR_3.0_LosAngeles.jpg?n=9378"],
 	["London", "http://wsgtmedia.s3.amazonaws.com/wp-content/uploads/2014/11/2014-11-10_5460d14ad632a_London.jpg"],

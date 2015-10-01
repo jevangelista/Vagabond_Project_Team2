@@ -1,7 +1,13 @@
-<h1><%= @city.name %></h1>
+<link href='https://fonts.googleapis.com/css?family=Rubik+One' rel='stylesheet' type='text/css'>
 
 
-<%= image_tag(@city.imgurl) %>
+<div class="image">
+  <%= image_tag(@city.imgurl) %>
+  <h1 class="city_title"><%= @city.name %></h1>
+</div>
+
+
+
 <%= button_to "Add a post to this city", new_post_path, method: "get" %>
 
 <div>
@@ -13,3 +19,5 @@
 
 </div>  
 <% end %>
+
+

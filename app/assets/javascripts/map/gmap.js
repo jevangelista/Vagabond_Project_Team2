@@ -1,7 +1,7 @@
 var map;
 var markers = [];
 var LatLng = { lat: 37.78, lng: -122.44};
-var maparr = [{name: "San Francisco", LatLng:{ lat: 37.78, lng: -122.44}}, {name: "London", LatLng:{ lat: 51.50, lng: 0.12}}, {name: "Gibraltar", LatLng:{ lat: 36.14, lng: 5.35}}, {name: "New York", LatLng:{ lat: 40.71, lng: -74.00}}];
+var maparr = [{name: "San Francisco", LatLng:{ lat: 37.78, lng: -122.44}, url: "www.google.com"}, {name: "London", LatLng:{ lat: 51.50, lng: 0.12}}, {name: "Gibraltar", LatLng:{ lat: 36.14, lng: 5.35}}, {name: "New York", LatLng:{ lat: 40.71, lng: -74.00}}];
 
 $(document).ready( function (){
   markerPush(maparr)
@@ -25,15 +25,26 @@ $(document).ready( function (){
       position: el.LatLng,
       map: map,
       title: el.name
+      
     })
+    var info = createInfoWindow(el.url);
+    google.maps.event.addListener(marker, 'click', function() {
+      info.open(map,marker);
+    });
     markers.push(marker)
   });
 };
-
 
   function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
   }
 
+};
+
+function createInfoWindow(text){
+  var infowindow = new google.maps.InfoWindow({
+   
+  });
+  return infowindow;
 }
