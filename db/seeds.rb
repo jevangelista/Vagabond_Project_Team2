@@ -11,8 +11,14 @@ User.destroy_all
 Post.destroy_all
 City.destroy_all
 
-cities = [["San Francisco", "https://images.unsplash.com/photo-1439396087961-98bc12c21176?q=80&fm=jpg&s=bce7579fe32b464cc2d53c5c144a2de4" ], 
-["New York", "http://i.huffpost.com/gen/1378052/images/o-NEW-YORK-facebook.jpg"], ["Los Angeles", "http://www.udr.com/uploadedImages/UDR3/Market_Areas/Common/UDR_3.0_LosAngeles.jpg?n=9378"], ["London", "http://wsgtmedia.s3.amazonaws.com/wp-content/uploads/2014/11/2014-11-10_5460d14ad632a_London.jpg"], ["Gibraltar", "https://upload.wikimedia.org/wikipedia/commons/b/b9/Rock_of_Gibraltar_Barbary_Macaque.jpg"],["Las Vegas", "http://flippins.com/wp-content/uploads/2014/02/las-vegas-night.jpg"]]
+cities = [
+	["San Francisco", "https://images.unsplash.com/photo-1439396087961-98bc12c21176?q=80&fm=jpg&s=bce7579fe32b464cc2d53c5c144a2de4"],
+	["New York", "http://i.huffpost.com/gen/1378052/images/o-NEW-YORK-facebook.jpg"],
+	["Los Angeles", "http://www.udr.com/uploadedImages/UDR3/Market_Areas/Common/UDR_3.0_LosAngeles.jpg?n=9378"],
+	["London", "http://wsgtmedia.s3.amazonaws.com/wp-content/uploads/2014/11/2014-11-10_5460d14ad632a_London.jpg"],
+	["Gibraltar", "https://upload.wikimedia.org/wikipedia/commons/b/b9/Rock_of_Gibraltar_Barbary_Macaque.jpg"],
+	["Las Vegas", "http://flippins.com/wp-content/uploads/2014/02/las-vegas-night.jpg"]
+]
 
 # Populates the cities table
 cities.each do |c|
@@ -21,7 +27,9 @@ cities.each do |c|
 end
 
 def getCityId(city)
+	# p "In getCityId"
 	cityObj = City.find_by name: city
+	# p "returning #{cityObj.id}"
 	return cityObj.id
 end
 
@@ -39,12 +47,15 @@ end
 # p "after creating user #{user}"
 # Creates 5 - 15 posts for each user
 	(rand(11) + 5).times do
+		# p "Beginning of post creation"
 		title = FFaker::Movie.title
 		content = FFaker::BaconIpsum.paragraph
 		# 80% chance post is the same as their city
 		city = rand(10) < 8 ? city_name : "San Francisco" 
 		user_id = user.id 	
-		post_data = {title: title, content: content, user_id: user_id, city_id: getCityId(city)}
+		post_data = {title: title, content: content, city_id: getCityId(city), user_id: user_id}
+		# p "post_data: #{post_data}"
 		Post.create(post_data)
+		# p "This will not be printed"
 	end
 end
