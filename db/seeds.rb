@@ -11,6 +11,7 @@ User.destroy_all
 Post.destroy_all
 City.destroy_all
 
+
 cities = [
 	["San Francisco", "https://images.unsplash.com/photo-1422405061047-61f0cf84c1dc?q=80&fm=jpg&s=8662502e6bc5e8f1e694c890ac7192e1"],
 	["New York", "http://i.huffpost.com/gen/1378052/images/o-NEW-YORK-facebook.jpg"],
@@ -19,6 +20,15 @@ cities = [
 	["Gibraltar", "https://upload.wikimedia.org/wikipedia/commons/b/b9/Rock_of_Gibraltar_Barbary_Macaque.jpg"],
 	["Las Vegas", "http://flippins.com/wp-content/uploads/2014/02/las-vegas-night.jpg"]
 ]
+
+tags = ["Biking", "Food", "Music", "Art", "Drinks", "Pub", "Restaurant", "Monument", "Red light district", "Restrooms"]
+
+tags.each do |tag|
+	Tag.create({name: tag})
+end
+
+firstTagId = Tag.first.id
+tagLen = Tag.count
 
 # Populates the cities table
 cities.each do |c|
@@ -55,7 +65,11 @@ end
 		user_id = user.id 	
 		post_data = {title: title, content: content, city_id: getCityId(city), user_id: user_id}
 		# p "post_data: #{post_data}"
-		Post.create(post_data)
+		post = Post.create(post_data)
 		# p "This will not be printed"
+		(1 + rand(3)).times do
+			tag_data = {post_id: post.id, tag_id: (firstTagId + rand(tagLen))}
+			Tagging.create(tag_data)
+		end
 	end
 end
