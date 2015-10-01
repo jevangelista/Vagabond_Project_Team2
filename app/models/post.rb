@@ -1,27 +1,31 @@
 class Post < ActiveRecord::Base
 	validates :title, length: { in: 1..200 }
-    has_many :tags
+    has_many :taggings
+    has_many :tags, through: :taggings
   	validates :content, presence: true
 
 	belongs_to :user
 	belongs_to :city
 
-	 attr_accessor :keywords
-
-  @@alchemy_url ||= ENV["ALCHEMY_URL"]
-
-  def get_keywords
-    res = Typhoeus.get(
-      @@alchemy_url,
-      params: {
-        apikey: ENV["ALCHEMY_APIKEY"],
-        text: content,
-        maxRetrieve: 10,
-        outputMode: "json"
-      }
-    )
-    words = JSON.parse(res.body)["keywords"].map { |w| w['text'] }
-    @keywords = words.join(" | ")
+  def all_tags=(names)
+      self.tags = names.split(", ").map do |name|
+      Tag.where(name: name.strip).first_or_create!
+    end
   end
+
+  def all_tags
+    self.tags.map(&:name).join(", ")
+  end
+
+  def self.tagged_with(name)
+    foo = Tag.find_by(:name=>name)
+      if foo
+        foo.logs
+      else
+        false
+      end
+  end
+
+
 
 end

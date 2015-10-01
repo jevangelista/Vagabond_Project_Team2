@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     p "params[:post]: #{params[:post]}"
     p "params[:user_id]: #{params[:user_id]}"
 # byebug
-    new_post = params.require(:post).permit(:title, :content, :city_id)
+    new_post = params.require(:post).permit(:title, :content, :city_id, :all_tags)
     new_post[:user_id] = params[:user_id]
     p "** new_post #{new_post}"
     post = Post.create(new_post) #magically being inserted in database

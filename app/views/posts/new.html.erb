@@ -8,7 +8,13 @@
 	</p><p>
 		<%= f.label :content %><br />
 		<%= f.text_area :content %>
-	</p><p>
+	</p>
+
+	<p>
+      <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+    </p>
+
+	<p>
 		<%= f.collection_select(:city_id, City.all, :id, :name) %>
 	</p><p>
 		<%= f.submit "Add a new post about this city" %>
