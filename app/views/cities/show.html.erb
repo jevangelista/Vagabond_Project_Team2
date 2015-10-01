@@ -1,6 +1,6 @@
 <h1><%= @city.name %></h1>
 
-<%= image_tag(@city.imgurl, width:'100%', height:'30%') %>
+<%= image_tag(@city.imgurl) %>
 <%= button_to "Add a post to this city", new_post_path, method: "get" %>
 <div>
 
