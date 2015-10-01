@@ -1,5 +1,6 @@
 <h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+
+<p class="blurry"><%= @post.content %></p>
 <div>Tags: <%= raw tag_links(@post.all_tags)%><div>
 
 <small><%= @post.created_at %></small>

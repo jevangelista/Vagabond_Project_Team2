@@ -2,12 +2,13 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:new, :create, :update, :destroy]
 
   def index
-     if params[:tag]
-    @posts = Post.tagged_with(params[:tag])
-  else
-    @posts = Post.all
-  end
-
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
+    @cities = City.all
+    render :index
   end
 
   def new
