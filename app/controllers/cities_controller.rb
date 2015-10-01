@@ -6,6 +6,7 @@ class CitiesController < ApplicationController
   def show
     id = params[:id]
     @city = City.find(id)
+    @post.all_tags = @post.all_tags}
   end
 
   # def posts
