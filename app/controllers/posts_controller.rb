@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:new, :create, :update, :destroy]
 
   def index
-    @posts = Post.all # a list of all items in post table
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all
+    end
     @cities = City.all
     render :index
   end
@@ -37,7 +41,7 @@ class PostsController < ApplicationController
     p "params[:post]: #{params[:post]}"
     p "params[:user_id]: #{params[:user_id]}"
 # byebug
-    new_post = params.require(:post).permit(:title, :content, :city_id)
+    new_post = params.require(:post).permit(:title, :content, :city_id, :all_tags)
     new_post[:user_id] = params[:user_id]
     p "** new_post #{new_post}"
     post = Post.create(new_post) #magically being inserted in database

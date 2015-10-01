@@ -7,7 +7,7 @@
 
 <span class="links"><%= link_to "Edit", edit_user_path %></span>
 
-<% @user.posts.each do |post| %>
+<% @user.posts.reverse.each do |post| %>
 	<div class='list-group'>
 		<%= link_to post.title, post_path(post.id) %>
 	</div>
