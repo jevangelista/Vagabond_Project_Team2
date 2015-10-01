@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       user = User.find(user_id)
 
       # get updated data
-      updated_attributes = params.require(:user).permit(:first_name, :current_city)
+      updated_attributes = params.require(:user).permit(:first_name, :last_name, :city_id)
       # update the user
       user.update_attributes(updated_attributes)
 
@@ -62,5 +62,5 @@ class UsersController < ApplicationController
     #   city.name
     # end
     # helper_method :current_city
-  >>>>>>> eb11f2a9810216a7087cc17400bfe63d1fd0797f
+
   end

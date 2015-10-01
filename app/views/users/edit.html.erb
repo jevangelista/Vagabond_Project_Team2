@@ -1,5 +1,5 @@
 
-<h1>Edit Users</h1>
+<h1>Edit User</h1>
 
 
 <div>
@@ -8,11 +8,13 @@
 	<%= form_for @user do |f| %>
 
 	<div>
-		<%= f.text_field :first_name %>
+		<p> First:	<%= f.text_field :first_name %> </p>
 	</div>
-
 	<div>
-		<%= f.collection_select(:city_id, City.all, :id, :name) %>
+	    <p> Last: <%= f.text_field :last_name %> </p>
+	</div>
+	<div>
+		<p> City: <%= f.collection_select(:city_id, City.all, :id, :name) %> </p>
 	</div>
 
 
