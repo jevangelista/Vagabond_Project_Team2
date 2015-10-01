@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all # a list of all items in post table
+    @cities = City.all
     render :index
   end
 
