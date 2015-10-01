@@ -4,7 +4,9 @@
 
 	<p class="blurry"><%= @post.content%></p>
 	<span class="links"><%= link_to "Edit", edit_post_path(@post) %></span>
-	<div>Tags: <%= raw tag_links(@post.all_tags) %></div>
+
+	
+	<div class="blurry">Tags: <%= raw tag_links(@post.all_tags) %></div>
 
 </div>
 
