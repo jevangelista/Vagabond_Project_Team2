@@ -62,4 +62,5 @@ class UsersController < ApplicationController
     #   city.name
     # end
     # helper_method :current_city
+
   end
