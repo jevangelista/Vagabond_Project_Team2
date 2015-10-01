@@ -4,7 +4,7 @@
 <%= button_to "Add a post to this city", new_post_path(@city.id), method: "get" %>
 <div>
 
-  <% @city.posts.reverse.each do |post| %>
+  <% @city.posts.each do |post| %>
   	<div class='list-group'>
   		<%= link_to post.title, user_posts_path(post) %>
   	</div>
