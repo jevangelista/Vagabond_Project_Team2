@@ -1,21 +1,21 @@
 
-<h1>Recent Posts</h1>
+<h1 class="recent-posts">Recent Posts</h1>
 <% @posts.take(10).each do |post| %>
   <% city = @cities.find_by_id post.city_id %>
   <div class="blurry">
 
-    Title: <%= link_to post.title, post_path(post) %> <br>
+    <span class="post-title"><%= link_to post.title, post_path(post) %></span> <br>
     <%= link_to city.name, city_name_path(city) %> <br>
-    Content: <%=  post.content %>
+    <%=  post.content %>
     <p>
     <% if post.user == current_user %>
       <span class="links"><%= link_to "Edit", edit_post_path(post) %></span> | 
       <span class="links"><%= link_to "Delete", post_path(post),
       method: :delete,
       data: { confirm: 'do you really want to delete?'} %></span>
-      | <%= link_to 'Back', user_path(post.user) %>
+      | <span class="links"><%= link_to 'Back', user_path(post.user) %></span>
     <% else %>
-        <%= link_to 'Back', user_path(post.user) %>
+        <span class="links"><%= link_to 'Back', user_path(post.user) %></span>
     <% end %>
 
     </p>
