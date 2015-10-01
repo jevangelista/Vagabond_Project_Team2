@@ -18,13 +18,8 @@ class Post < ActiveRecord::Base
   end
 
   def self.tagged_with(name)
-    foo = Tag.find_by(:name=>name)
-      if foo
-        foo.logs
-      else
-        false
-      end
-  end
+  Tag.find_by_name!(name).posts
+end
 
 
 

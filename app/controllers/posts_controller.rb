@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:new, :create, :update, :destroy]
 
   def index
-    @posts = Post.all # a list of all items in post table
-    render :index
+     if params[:tag]
+    @posts = Post.tagged_with(params[:tag])
+  else
+    @posts = Post.all
+  end
+
   end
 
   def new
