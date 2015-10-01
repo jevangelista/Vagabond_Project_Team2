@@ -3,5 +3,6 @@
 	<h2 class="blurry"> Author: <%= @user.first_name %> <%=@user.last_name%></h2>
 	<p class="blurry"> <%= @post.content%> </p>
 	<p class="blurry"><%= link_to "Edit", edit_post_path(@post) %></p>
+	<div>Tags: <%= raw tag_links(@post.all_tags) %></div>
 </div>
 

@@ -48,6 +48,9 @@ Rails.application.routes.draw do
 
   get 'users/posts/:id', to: 'users#posts', as: "user_posts"
 
+  #tagging route
+  get 'tags/:tag', to: 'posts#index', as: "tag"
+
 
  
 end

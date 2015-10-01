@@ -1,6 +1,6 @@
 
 <h1>Recent Posts</h1>
-<% @posts.take(10).each do |post| %>
+<% @posts.reverse.take(10).each do |post| %>
   <% city = @cities.find_by_id post.city_id %>
   <div class="blurry">
 
