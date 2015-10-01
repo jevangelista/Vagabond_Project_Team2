@@ -1,7 +1,12 @@
 var map;
 var markers = [];
 var LatLng = { lat: 37.78, lng: -122.44};
-var maparr = [{name: "San Francisco", LatLng:{ lat: 37.78, lng: -122.44}, url: "www.google.com"}, {name: "London", LatLng:{ lat: 51.50, lng: 0.12}}, {name: "Gibraltar", LatLng:{ lat: 36.14, lng: 5.35}}, {name: "New York", LatLng:{ lat: 40.71, lng: -74.00}}];
+var maparr = [{name: "San Francisco", LatLng:{ lat: 37.78, lng: -122.44}, info: "Visit San Francisco."}, 
+{name: "London", LatLng:{ lat: 51.50, lng: 0.12}, info: "Visit London."}, 
+{name: "Gibraltar", LatLng:{ lat: 36.14, lng: 5.35}, info: "Visit Gibraltar."}, 
+{name: "New York", LatLng:{ lat: 40.71, lng: -74.00}, info: "Visit New York"},
+{name: "Las Vegas", LatLng:{ lat: 36.12, lng: -115.17}, info: "Visit Las Vegas."},
+{name: "Los Angeles", LatLng:{ lat: 34.05, lng: -118.25}, info: "Visit Los Angeles."}];
 
 $(document).ready( function (){
   markerPush(maparr)
@@ -25,11 +30,13 @@ $(document).ready( function (){
       position: el.LatLng,
       map: map,
       title: el.name
+
       
     })
-    var info = createInfoWindow(el.url);
+    var info = createInfoWindow(el.info);
     google.maps.event.addListener(marker, 'click', function() {
       info.open(map,marker);
+
     });
     markers.push(marker)
   });
@@ -44,6 +51,7 @@ $(document).ready( function (){
 
 function createInfoWindow(text){
   var infowindow = new google.maps.InfoWindow({
+    content: text
    
   });
   return infowindow;
