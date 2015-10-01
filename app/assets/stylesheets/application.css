@@ -88,6 +88,11 @@ div.list-group {
   background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.7), rgba(255,255,255,0));
 }
 
+.links {
+  font-size: 14px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.5), rgba(255,255,255,0.4));
+}
+
 
 
 

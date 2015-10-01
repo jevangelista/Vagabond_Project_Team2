@@ -9,10 +9,10 @@
     Content: <%=  post.content %>
     <p>
     <% if post.user == current_user %>
-      <%= link_to "Edit", edit_post_path(post) %> | 
-      <%= link_to "Delete", post_path(post),
+      <span class="links"><%= link_to "Edit", edit_post_path(post) %></span> | 
+      <span class="links"><%= link_to "Delete", post_path(post),
       method: :delete,
-      data: { confirm: 'do you really want to delete?'} %>
+      data: { confirm: 'do you really want to delete?'} %></span>
       | <%= link_to 'Back', user_path(post.user) %>
     <% else %>
         <%= link_to 'Back', user_path(post.user) %>
