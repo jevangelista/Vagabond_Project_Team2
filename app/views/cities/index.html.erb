@@ -1,10 +1,9 @@
 <h1>Cities</h1>
 <hr />
 <%@cities.each do |city| %>
-	  <div>
-	       <%= link_to city.name, city_name_path(city)%> <br>
-	              
-	              
+	  
+    <div class="blurry">
+	       <span><%= link_to city.name, city_name_path(city)%><span> <br>                
 	  </div>
 
 
