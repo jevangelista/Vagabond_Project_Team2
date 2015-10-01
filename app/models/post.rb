@@ -6,9 +6,8 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :city
 
-	attr_accessor :keywords
+	 attr_accessor :keywords
 
-    attr_accessor :keywords
   @@alchemy_url ||= ENV["ALCHEMY_URL"]
 
   def get_keywords
